@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="1024dp"
+    android:height="1536dp"
+    android:viewportWidth="1024"
+    android:viewportHeight="1536">
+
+    <!-- All artwork is 30% opaque -->
+    <group android:alpha="0.3">
+        <!-- Background Navy Gradient -->
+        <path android:pathData="M0,0h1024v1536h-1024z">
+            <aapt:attr name="android:fillColor">
+                <gradient
+                    android:startX="0"
+                    android:startY="0"
+                    android:endX="1024"
+                    android:endY="1536"
+                    android:type="linear">
+                    <item android:offset="0" android:color="@color/navy_start" />
+                    <item android:offset="1" android:color="@color/navy_end" />
+                </gradient>
+            </aapt:attr>
+        </path>
+
+        <!-- Upper wings -->
+        <path
+            android:pathData="M0,0 L290,290 L135,290 L0,155 M0,75 L235,310 L75,310 L0,235 M0,160 L170,330 L45,330 L0,285"
+            android:strokeWidth="3">
+            <aapt:attr name="android:strokeColor">
+                <gradient
+                    android:startX="0"
+                    android:startY="0"
+                    android:endX="290"
+                    android:endY="330"
+                    android:type="linear">
+                    <item android:offset="0" android:color="@color/gold_start" />
+                    <item android:offset="0.45" android:color="@color/gold_mid" />
+                    <item android:offset="1" android:color="@color/gold_end" />
+                </gradient>
+            </aapt:attr>
+        </path>
+
+        <path
+            android:pathData="M1024,0 L734,290 L889,290 L1024,155 M1024,75 L789,310 L949,310 L1024,235 M1024,160 L854,330 L979,330 L1024,285"
+            android:strokeWidth="3">
+            <aapt:attr name="android:strokeColor">
+                <gradient
+                    android:startX="1024"
+                    android:startY="0"
+                    android:endX="734"
+                    android:endY="330"
+                    android:type="linear">
+                    <item android:offset="0" android:color="@color/gold_start" />
+                    <item android:offset="0.45" android:color="@color/gold_mid" />
+                    <item android:offset="1" android:color="@color/gold_end" />
+                </gradient>
+            </aapt:attr>
+        </path>
+
+        <!-- Central tech emblem -->
+        <group
+            android:translateX="512"
+            android:translateY="315">
+            <path
+                android:pathData="M0,0m-116,0a116,116 0,1 1,232,0a116,116 0,1 1,-232,0"
+                android:fillColor="#071a37"
+                android:strokeWidth="4">
+                <aapt:attr name="android:strokeColor">
+                    <gradient
+                        android:startX="-116"
+                        android:startY="-116"
+                        android:endX="116"
+                        android:endY="116"
+                        android:type="linear">
+                        <item android:offset="0" android:color="@color/blue_start" />
+                        <item android:offset="0.5" android:color="@color/blue_mid" />
+                        <item android:offset="1" android:color="@color/blue_end" />
+                    </gradient>
+                </aapt:attr>
+            </path>
+
+            <!-- Diamond shapes -->
+            <path
+                android:pathData="M0,-78 L58,8 L0,58 L-58,8 Z"
+                android:strokeColor="#bfe0ff"
+                android:strokeWidth="2">
+                <aapt:attr name="android:fillColor">
+                    <gradient
+                        android:startX="0"
+                        android:startY="-78"
+                        android:endX="0"
+                        android:endY="58"
+                        android:type="linear">
+                        <item android:offset="0" android:color="@color/blue_start" />
+                        <item android:offset="0.5" android:color="@color/blue_mid" />
+                        <item android:offset="1" android:color="@color/blue_end" />
+                    </gradient>
+                </aapt:attr>
+            </path>
+            <path
+                android:pathData="M-58,8 L0,58 L58,8 L0,22 Z"
+                android:strokeColor="#f7d66f"
+                android:strokeWidth="2">
+                <aapt:attr name="android:fillColor">
+                    <gradient
+                        android:startX="-58"
+                        android:startY="8"
+                        android:endX="58"
+                        android:endY="58"
+                        android:type="linear">
+                        <item android:offset="0" android:color="@color/gold_start" />
+                        <item android:offset="0.45" android:color="@color/gold_mid" />
+                        <item android:offset="1" android:color="@color/gold_end" />
+                    </gradient>
+                </aapt:attr>
+            </path>
+
+            <path
+                android:pathData="M0,-78 L0,58"
+                android:strokeColor="#d7eaff"
+                android:strokeWidth="2"/>
+        </group>
+
+        <!-- Lower accents -->
+        <path
+            android:pathData="M0,1120 L190,1310 M1024,1120 L834,1310"
+            android:strokeColor="#4f8fd0"
+            android:strokeWidth="2"/>
+    </group>
+</vector>

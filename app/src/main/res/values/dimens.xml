@@ -1,0 +1,11 @@
+<resources>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="login_card_radius">24dp</dimen>
+    <dimen name="input_radius">12dp</dimen>
+    <dimen name="button_radius">12dp</dimen>
+    <dimen name="spacing_large">32dp</dimen>
+    <dimen name="spacing_medium">16dp</dimen>
+    <dimen name="spacing_small">8dp</dimen>
+    <dimen name="text_size_brand">40sp</dimen>
+    <dimen name="text_size_subbrand">18sp</dimen>
+</resources>

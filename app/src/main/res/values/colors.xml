@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="navy_start">#0a1830</color>
+    <color name="navy_end">#102f62</color>
+
+    <color name="gold_start">#ffe08a</color>
+    <color name="gold_mid">#e5aa27</color>
+    <color name="gold_end">#9c6410</color>
+
+    <color name="blue_start">#7fc4ff</color>
+    <color name="blue_mid">#2364a8</color>
+    <color name="blue_end">#08254d</color>
+
+    <color name="card_bg">#33102f62</color>
+    <color name="input_bg">#20FFFFFF</color>
+    <color name="input_stroke">#40FFFFFF</color>
+    <color name="text_gold">#e5aa27</color>
+    <color name="text_light_blue">#bfe0ff</color>
+</resources>
