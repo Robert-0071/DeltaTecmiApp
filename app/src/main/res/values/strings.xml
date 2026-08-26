@@ -61,4 +61,32 @@
     <string name="error_invalid_login">Usuario o contraseña incorrectos</string>
     <string name="error_empty_fields">Por favor, llena todos los campos</string>
     <string name="registration_success">Usuario registrado con éxito</string>
+
+    <!-- List screen strings -->
+    <string name="title_delta_tecmi">Delta Tecmi</string>
+    <string name="subtitle_articles">12 artículos</string>
+    <string name="trend_up_text">Subió</string>
+    <string name="trend_down_text">Bajó</string>
+    <string name="trend_neutral_text">Sin cambio</string>
+    <string name="label_favorites">Favoritos</string>
+    <string name="label_home">Inicio</string>
+
+    <!-- Settings -->
+    <string name="title_settings">Configuración</string>
+    <string name="label_colorblind_mode">Modo Daltonismo</string>
+    <string name="desc_colorblind_mode">Usa azul y naranja en lugar de verde y rojo</string>
+    <string name="btn_logout">Cerrar Sesión</string>
+
+    <!-- Add/Edit Product -->
+    <string name="title_new_article">Nuevo Artículo</string>
+    <string name="title_edit_article">Editar Artículo</string>
+    <string name="label_name_required">NOMBRE *</string>
+    <string name="hint_name">Ej. Mango</string>
+    <string name="label_store">TIENDA</string>
+    <string name="hint_store">Ej. Chedraui (opcional)</string>
+    <string name="label_price_required">PRECIO (MXN) *</string>
+    <string name="hint_price">0.00</string>
+    <string name="btn_add_article">AGREGAR ARTÍCULO</string>
+    <string name="btn_save_changes">GUARDAR CAMBIOS</string>
+    <string name="btn_cancel">Cancelar</string>
 </resources>

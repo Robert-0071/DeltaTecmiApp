@@ -19,4 +19,12 @@
     <color name="input_stroke">#40FFFFFF</color>
     <color name="text_gold">#e5aa27</color>
     <color name="text_light_blue">#bfe0ff</color>
+
+    <!-- New colors for the list -->
+    <color name="trend_up">#2196F3</color>
+    <color name="trend_down">#FF9800</color>
+    <color name="trend_neutral">#607D8B</color>
+    <color name="item_bg">#1AFFFFFF</color>
+    <color name="item_stroke">#20FFFFFF</color>
+    <color name="nav_bar_bg">#0A1830</color>
 </resources>
