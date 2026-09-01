@@ -1,6 +1,8 @@
 package com.example.actividad1aplicacion
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,6 +15,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.actividad1aplicacion.databinding.FragmentSecondBinding
 import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.launch
 
 class SecondFragment : Fragment() {
@@ -22,6 +25,7 @@ class SecondFragment : Fragment() {
     private val viewModel: MainViewModel by activityViewModels()
     private lateinit var adapter: ProductAdapter
     private var isShowingFavorites = false
+    private var searchQuery = ""
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -37,6 +41,7 @@ class SecondFragment : Fragment() {
         setupUI()
         setupRecyclerView()
         observeViewModel()
+        setupSearch()
     }
 
     private fun setupUI() {
@@ -59,6 +64,17 @@ class SecondFragment : Fragment() {
             updateTabUI()
             refreshList()
         }
+    }
+
+    private fun setupSearch() {
+        binding.inputSearch.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                searchQuery = s?.toString() ?: ""
+                refreshList()
+            }
+            override fun afterTextChanged(s: Editable?) {}
+        })
     }
 
     private fun updateTabUI() {
@@ -87,11 +103,13 @@ class SecondFragment : Fragment() {
     private fun setupRecyclerView() {
         adapter = ProductAdapter(
             products = emptyList(),
+            isColorBlind = viewModel.isColorBlindMode.value,
             onFavoriteClick = { id -> viewModel.toggleFavorite(id) },
-            onMoreClick = { id -> 
+            onEditClick = { id -> 
                 val bundle = Bundle().apply { putLong("productId", id) }
                 findNavController().navigate(R.id.action_SecondFragment_to_EditProductFragment, bundle)
-            }
+            },
+            onDeleteClick = { id -> viewModel.deleteProduct(id) }
         )
         binding.rvProducts.layoutManager = LinearLayoutManager(context)
         binding.rvProducts.adapter = adapter
@@ -99,19 +117,35 @@ class SecondFragment : Fragment() {
 
     private fun observeViewModel() {
         viewLifecycleOwner.lifecycleScope.launch {
-            viewModel.products.collectLatest { products ->
-                refreshList(products)
+            combine(viewModel.products, viewModel.isColorBlindMode) { products, colorBlind ->
+                Pair(products, colorBlind)
+            }.collectLatest { (products, colorBlind) ->
+                updateLegendColors(colorBlind)
+                refreshList(products, colorBlind)
             }
         }
     }
 
-    private fun refreshList(allProducts: List<Product> = viewModel.products.value) {
-        val filteredList = if (isShowingFavorites) {
-            allProducts.filter { it.isFavorite }
-        } else {
-            allProducts
+    private fun updateLegendColors(colorBlind: Boolean) {
+        val upColor = if (colorBlind) R.color.trend_up_daltonism else R.color.trend_up_normal
+        val downColor = if (colorBlind) R.color.trend_down_daltonism else R.color.trend_down_normal
+        
+        binding.legendUpIcon.imageTintList = android.content.res.ColorStateList.valueOf(requireContext().getColor(upColor))
+        binding.legendDownIcon.imageTintList = android.content.res.ColorStateList.valueOf(requireContext().getColor(downColor))
+    }
+
+    private fun refreshList(
+        allProducts: List<Product> = viewModel.products.value,
+        colorBlind: Boolean = viewModel.isColorBlindMode.value
+    ) {
+        val filteredList = allProducts.filter { product ->
+            val matchesTab = if (isShowingFavorites) product.isFavorite else true
+            val matchesSearch = product.name.contains(searchQuery, ignoreCase = true) ||
+                    (product.store?.contains(searchQuery, ignoreCase = true) ?: false) ||
+                    product.price.contains(searchQuery, ignoreCase = true)
+            matchesTab && matchesSearch
         }
-        adapter.updateData(filteredList)
+        adapter.updateData(filteredList, colorBlind)
         binding.subtitleMain.text = "${filteredList.size} artículos"
     }
 

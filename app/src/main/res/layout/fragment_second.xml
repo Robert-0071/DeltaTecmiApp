@@ -43,22 +43,64 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/title_main" />
 
+    <!-- Search Bar -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/search_bar"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/bg_login_card"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/subtitle_main">
+
+        <ImageView
+            android:id="@+id/icon_search"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="16dp"
+            android:src="@drawable/ic_trend_up"
+            android:rotation="90"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="#80FFFFFF" />
+
+        <EditText
+            android:id="@+id/input_search"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:hint="Buscar por nombre, tienda o precio..."
+            android:inputType="text"
+            android:paddingHorizontal="12dp"
+            android:textColor="@color/white"
+            android:textColorHint="#40FFFFFF"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/icon_search" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
     <!-- Legend -->
     <LinearLayout
         android:id="@+id/legend_section"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:gravity="center_vertical"
         android:orientation="horizontal"
         android:paddingHorizontal="24dp"
-        app:layout_constraintTop_toBottomOf="@id/subtitle_main">
+        app:layout_constraintTop_toBottomOf="@id/search_bar">
 
         <ImageView
+            android:id="@+id/legend_up_icon"
             android:layout_width="16dp"
             android:layout_height="16dp"
-            android:src="@drawable/ic_trend_up" />
+            android:src="@drawable/ic_trend_up"
+            app:tint="@color/trend_up_normal" />
         <TextView
+            android:id="@+id/legend_up_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
@@ -67,11 +109,14 @@
             android:textSize="12sp" />
 
         <ImageView
+            android:id="@+id/legend_down_icon"
             android:layout_width="16dp"
             android:layout_height="16dp"
             android:layout_marginStart="16dp"
-            android:src="@drawable/ic_trend_down" />
+            android:src="@drawable/ic_trend_down"
+            app:tint="@color/trend_down_normal" />
         <TextView
+            android:id="@+id/legend_down_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"

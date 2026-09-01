@@ -9,6 +9,7 @@ data class Product(
     val name: String,
     val store: String?,
     val price: String,
-    val trend: Trend,
+    val previousPrice: String = "0.00",
+    val trend: Trend = Trend.NEUTRAL,
     var isFavorite: Boolean = false
 )

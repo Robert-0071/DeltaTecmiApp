@@ -21,8 +21,10 @@
     <color name="text_light_blue">#bfe0ff</color>
 
     <!-- New colors for the list -->
-    <color name="trend_up">#2196F3</color>
-    <color name="trend_down">#FF9800</color>
+    <color name="trend_up_normal">#4CAF50</color>
+    <color name="trend_down_normal">#F44336</color>
+    <color name="trend_up_daltonism">#FF9800</color>
+    <color name="trend_down_daltonism">#8BC34A</color>
     <color name="trend_neutral">#607D8B</color>
     <color name="item_bg">#1AFFFFFF</color>
     <color name="item_stroke">#20FFFFFF</color>

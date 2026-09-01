@@ -41,13 +41,11 @@ class AddProductFragment : Fragment() {
             val price = binding.inputPrice.text.toString()
 
             if (name.isNotEmpty() && price.isNotEmpty()) {
-                val newProduct = Product(
+                viewModel.addProduct(
                     name = name,
                     store = if (store.isEmpty()) null else store,
-                    price = "$$price",
-                    trend = Trend.NEUTRAL
+                    price = "$$price"
                 )
-                viewModel.addProduct(newProduct)
                 findNavController().popBackStack()
             } else {
                 Toast.makeText(context, "Por favor llena los campos obligatorios", Toast.LENGTH_SHORT).show()

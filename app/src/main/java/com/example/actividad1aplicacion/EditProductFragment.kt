@@ -46,12 +46,12 @@ class EditProductFragment : Fragment() {
                 val price = binding.inputPriceEdit.text.toString()
 
                 if (name.isNotEmpty() && price.isNotEmpty()) {
-                    val updatedProduct = product.copy(
+                    viewModel.updateProduct(
+                        id = productId,
                         name = name,
                         store = if (store.isEmpty()) null else store,
                         price = "$$price"
                     )
-                    viewModel.updateProduct(updatedProduct)
                     findNavController().popBackStack()
                 } else {
                     Toast.makeText(context, "Por favor llena los campos obligatorios", Toast.LENGTH_SHORT).show()
