@@ -11,6 +11,9 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import com.example.actividad1aplicacion.databinding.ActivityMainBinding
 
+import dagger.hilt.android.AndroidEntryPoint
+
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
@@ -34,6 +37,9 @@ class MainActivity : AppCompatActivity() {
         val navController = navHostFragment.navController
 
         appBarConfiguration = AppBarConfiguration(navController.graph)
+
+        // PRUEBA DE CONEXIÓN FIREBASE
+        android.util.Log.d("FIREBASE_TEST", "¡DELTA TECMI CONECTADO A FIREBASE!")
     }
 
     override fun onSupportNavigateUp(): Boolean {

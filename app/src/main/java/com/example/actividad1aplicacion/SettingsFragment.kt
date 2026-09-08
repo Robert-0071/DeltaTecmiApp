@@ -1,6 +1,5 @@
 package com.example.actividad1aplicacion
 
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -35,7 +34,6 @@ class SettingsFragment : Fragment() {
         }
 
         binding.btnLogoutCard.setOnClickListener {
-            // Limpiar "sesión" (aunque en este caso es solo navegación)
             findNavController().navigate(R.id.action_SettingsFragment_to_FirstFragment)
         }
 

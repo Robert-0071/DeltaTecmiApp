@@ -7,49 +7,18 @@
     android:background="@drawable/bg_login_svg"
     tools:context=".FirstFragment">
 
-    <!-- Logo and Brand Section -->
-    <LinearLayout
-        android:id="@+id/logo_section"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        android:gravity="center"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <TextView
-            android:id="@+id/brand_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/brand_name"
-            android:textColor="@color/text_gold"
-            android:textSize="@dimen/text_size_brand"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/brand_subname"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:letterSpacing="0.2"
-            android:text="@string/brand_subname"
-            android:textColor="@color/text_light_blue"
-            android:textSize="@dimen/text_size_subbrand" />
-    </LinearLayout>
-
     <!-- Login Card -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/login_card"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="32dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="280dp"
         android:background="@drawable/bg_login_card"
         android:padding="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/logo_section">
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/login_title"
@@ -130,22 +99,11 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/label_password" />
 
-        <TextView
-            android:id="@+id/forgot_password"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="@string/forgot_password"
-            android:textColor="@color/text_gold"
-            android:textSize="12sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/input_password" />
-
         <Button
             android:id="@+id/btn_login"
             android:layout_width="0dp"
             android:layout_height="56dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="32dp"
             android:background="@drawable/bg_gold_button"
             android:text="@string/btn_login"
             android:textColor="@color/navy_start"
@@ -153,7 +111,7 @@
             app:backgroundTint="@null"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/forgot_password" />
+            app:layout_constraintTop_toBottomOf="@id/input_password" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

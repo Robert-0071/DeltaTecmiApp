@@ -22,13 +22,14 @@
             android:layout_height="24dp"
             android:src="@drawable/ic_trend_up"
             android:rotation="-90"
-            app:tint="@color/text_gold" />
+            app:tint="@color/text_gold"
+            android:contentDescription="Atrás" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:text="@string/title_edit_article"
+            android:text="Editar Artículo"
             android:textColor="@color/text_gold"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -37,6 +38,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginTop="200dp"
         android:paddingHorizontal="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/header_edit">
@@ -50,8 +52,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
-                android:text="@string/label_name_required"
+                android:text="NOMBRE *"
                 android:textColor="@color/text_light_blue"
                 android:textSize="12sp" />
 
@@ -70,7 +71,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
-                android:text="@string/label_store"
+                android:text="TIENDA (opcional)"
                 android:textColor="@color/text_light_blue"
                 android:textSize="12sp" />
 
@@ -89,7 +90,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
-                android:text="@string/label_price_required"
+                android:text="PRECIO (MXN) *"
                 android:textColor="@color/text_light_blue"
                 android:textSize="12sp" />
 
@@ -110,10 +111,20 @@
                 android:layout_height="64dp"
                 android:layout_marginTop="48dp"
                 android:background="@drawable/bg_gold_button"
-                android:text="@string/btn_save_changes"
+                android:text="GUARDAR CAMBIOS"
                 android:textColor="@color/navy_start"
                 android:textStyle="bold"
                 app:backgroundTint="@null" />
+
+            <Button
+                android:id="@+id/btn_delete_product"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:layout_marginTop="12dp"
+                android:text="🗑️ Eliminar artículo"
+                android:textColor="#FF5252"
+                app:strokeColor="#FF5252" />
 
             <Button
                 android:id="@+id/btn_cancel_edit"
@@ -121,7 +132,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="@string/btn_cancel"
+                android:text="Cancelar"
                 android:textColor="#80FFFFFF" />
 
         </LinearLayout>

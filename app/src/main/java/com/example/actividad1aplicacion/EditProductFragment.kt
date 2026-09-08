@@ -15,11 +15,11 @@ class EditProductFragment : Fragment() {
     private var _binding: FragmentEditProductBinding? = null
     private val binding get() = _binding!!
     private val viewModel: MainViewModel by activityViewModels()
-    private var productId: Long = -1
+    private var productId: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        productId = arguments?.getLong("productId") ?: -1
+        productId = arguments?.getString("productId") ?: ""
     }
 
     override fun onCreateView(
@@ -56,6 +56,11 @@ class EditProductFragment : Fragment() {
                 } else {
                     Toast.makeText(context, "Por favor llena los campos obligatorios", Toast.LENGTH_SHORT).show()
                 }
+            }
+
+            binding.btnDeleteProduct.setOnClickListener {
+                viewModel.deleteProduct(productId)
+                findNavController().popBackStack()
             }
         }
 

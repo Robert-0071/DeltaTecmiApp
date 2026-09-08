@@ -3,30 +3,30 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="navy_start">#0a1830</color>
-    <color name="navy_end">#102f62</color>
+    <!-- Delta Tecmi Palette -->
+    <color name="navy_start">#0A1830</color>
+    <color name="navy_end">#102F62</color>
+    <color name="text_gold">#E5AA27</color>
+    <color name="text_light_blue">#BFE0FF</color>
+    <color name="nav_bar_bg">#0D1B3E</color>
 
-    <color name="gold_start">#ffe08a</color>
-    <color name="gold_mid">#e5aa27</color>
-    <color name="gold_end">#9c6410</color>
+    <!-- Navigation/Background Gradients (Compatibility) -->
+    <color name="blue_start">#0A1830</color>
+    <color name="blue_mid">#0D1B3E</color>
+    <color name="blue_end">#102F62</color>
+    <color name="input_stroke">#1AFFFFFF</color>
 
-    <color name="blue_start">#7fc4ff</color>
-    <color name="blue_mid">#2364a8</color>
-    <color name="blue_end">#08254d</color>
-
-    <color name="card_bg">#33102f62</color>
-    <color name="input_bg">#20FFFFFF</color>
-    <color name="input_stroke">#40FFFFFF</color>
-    <color name="text_gold">#e5aa27</color>
-    <color name="text_light_blue">#bfe0ff</color>
-
-    <!-- New colors for the list -->
+    <!-- Trend Colors (Normal) -->
     <color name="trend_up_normal">#4CAF50</color>
     <color name="trend_down_normal">#F44336</color>
-    <color name="trend_up_daltonism">#FF9800</color>
-    <color name="trend_down_daltonism">#8BC34A</color>
     <color name="trend_neutral">#607D8B</color>
-    <color name="item_bg">#1AFFFFFF</color>
-    <color name="item_stroke">#20FFFFFF</color>
-    <color name="nav_bar_bg">#0A1830</color>
+
+    <!-- Trend Colors (Daltonism) -->
+    <color name="trend_up_daltonism">#FF9800</color>
+    <color name="trend_down_daltonism">#4FC3F7</color>
+
+    <!-- Button Gradients -->
+    <color name="gold_start">#F9D423</color>
+    <color name="gold_mid">#E5AA27</color>
+    <color name="gold_end">#B8860B</color>
 </resources>

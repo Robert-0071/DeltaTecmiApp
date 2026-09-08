@@ -5,10 +5,10 @@ enum class Trend {
 }
 
 data class Product(
-    val id: Long = System.currentTimeMillis() + (0..1000).random(),
-    val name: String,
-    val store: String?,
-    val price: String,
+    val id: String = "",
+    val name: String = "",
+    val store: String? = null,
+    val price: String = "",
     val previousPrice: String = "0.00",
     val trend: Trend = Trend.NEUTRAL,
     var isFavorite: Boolean = false

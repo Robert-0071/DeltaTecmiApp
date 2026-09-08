@@ -125,6 +125,7 @@
             android:textSize="12sp" />
 
         <ImageView
+            android:id="@+id/legend_neutral_icon"
             android:layout_width="16dp"
             android:layout_height="16dp"
             android:layout_marginStart="16dp"

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "969527592919",
+    "project_id": "tecmi-isltl099384-dev",
+    "storage_bucket": "tecmi-isltl099384-dev.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:969527592919:android:1779d3b1d96fa896686d92",
+        "android_client_info": {
+          "package_name": "com.example.actividad1aplicacion"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAoKnUMy4xU2bhwWIKM1zlCCQxnO8Fsa0Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

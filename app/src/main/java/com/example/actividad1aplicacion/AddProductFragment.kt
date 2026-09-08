@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
@@ -40,6 +39,9 @@ class AddProductFragment : Fragment() {
             val store = binding.inputStore.text.toString()
             val price = binding.inputPrice.text.toString()
 
+            binding.errorName.visibility = if (name.isEmpty()) View.VISIBLE else View.GONE
+            binding.errorPrice.visibility = if (price.isEmpty()) View.VISIBLE else View.GONE
+
             if (name.isNotEmpty() && price.isNotEmpty()) {
                 viewModel.addProduct(
                     name = name,
@@ -47,8 +49,6 @@ class AddProductFragment : Fragment() {
                     price = "$$price"
                 )
                 findNavController().popBackStack()
-            } else {
-                Toast.makeText(context, "Por favor llena los campos obligatorios", Toast.LENGTH_SHORT).show()
             }
         }
     }
