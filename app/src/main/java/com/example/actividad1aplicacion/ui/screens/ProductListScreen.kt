@@ -9,7 +9,9 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.Assignment
 import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.*
@@ -19,6 +21,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
@@ -37,7 +40,8 @@ fun ProductListScreen(
     onSettingsClick: () -> Unit,
     onDeleteProduct: (String) -> Unit,
     onFavoriteClick: (String, Boolean) -> Unit,
-    onEditClick: (String) -> Unit
+    onEditClick: (String) -> Unit,
+    onGoToNotes: () -> Unit
 ) {
     var searchQuery by remember { mutableStateOf("") }
     var isShowingFavorites by remember { mutableStateOf(false) }
@@ -62,8 +66,10 @@ fun ProductListScreen(
             bottomBar = {
                 CustomBottomNav(
                     isFavoritesActive = isShowingFavorites,
+                    isNotesActive = false,
                     onHomeClick = { isShowingFavorites = false },
                     onFavClick = { isShowingFavorites = true },
+                    onNotesClick = onGoToNotes,
                     onAddClick = onAddClick
                 )
             }
@@ -156,8 +162,10 @@ fun LegendItem(icon: Int, label: String, color: Color) {
 @Composable
 fun CustomBottomNav(
     isFavoritesActive: Boolean,
+    isNotesActive: Boolean,
     onHomeClick: () -> Unit,
     onFavClick: () -> Unit,
+    onNotesClick: () -> Unit,
     onAddClick: () -> Unit
 ) {
     Box(modifier = Modifier.fillMaxWidth().height(90.dp)) {
@@ -168,15 +176,24 @@ fun CustomBottomNav(
         ) {
             NavItem(
                 icon = if (isFavoritesActive) R.drawable.ic_star_filled else R.drawable.ic_star_outline,
-                label = "Favoritos",
+                label = "Favs",
                 isActive = isFavoritesActive,
                 onClick = onFavClick
             )
-            Spacer(modifier = Modifier.width(64.dp))
+            
+            NavItem(
+                vector = Icons.AutoMirrored.Filled.Assignment,
+                label = "Notas",
+                isActive = isNotesActive,
+                onClick = onNotesClick
+            )
+
+            Spacer(modifier = Modifier.width(48.dp))
+            
             NavItem(
                 icon = R.drawable.ic_home,
                 label = "Inicio",
-                isActive = !isFavoritesActive,
+                isActive = !isFavoritesActive && !isNotesActive,
                 onClick = onHomeClick
             )
         }
@@ -190,9 +207,13 @@ fun CustomBottomNav(
 }
 
 @Composable
-fun NavItem(icon: Int, label: String, isActive: Boolean, onClick: () -> Unit) {
+fun NavItem(icon: Int? = null, vector: ImageVector? = null, label: String, isActive: Boolean, onClick: () -> Unit) {
     Column(horizontalAlignment = Alignment.CenterHorizontally, modifier = Modifier.clickable { onClick() }) {
-        Icon(painter = painterResource(id = icon), contentDescription = null, tint = if (isActive) Color(0xFFE5AA27) else Color.White.copy(alpha = 0.3f), modifier = Modifier.size(24.dp))
+        if (icon != null) {
+            Icon(painter = painterResource(id = icon), contentDescription = null, tint = if (isActive) Color(0xFFE5AA27) else Color.White.copy(alpha = 0.3f), modifier = Modifier.size(24.dp))
+        } else if (vector != null) {
+            Icon(imageVector = vector, contentDescription = null, tint = if (isActive) Color(0xFFE5AA27) else Color.White.copy(alpha = 0.3f), modifier = Modifier.size(24.dp))
+        }
         Text(text = label, color = if (isActive) Color(0xFFE5AA27) else Color.White.copy(alpha = 0.3f), fontSize = 10.sp)
     }
 }

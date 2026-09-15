@@ -90,6 +90,15 @@ fun ProductCard(
                         tint = if (product.isFavorite) Color(0xFFE5AA27) else Color.White.copy(alpha = 0.3f)
                     )
                 }
+
+                // ICONO DE LOS TRES PUNTOS (Añadido para tu captura)
+                IconButton(onClick = { isExpanded = !isExpanded }, modifier = Modifier.size(32.dp)) {
+                    Icon(
+                        imageVector = Icons.Default.MoreVert,
+                        contentDescription = "Más opciones",
+                        tint = Color.White.copy(alpha = 0.3f)
+                    )
+                }
                 
                 Icon(
                     imageVector = if (isExpanded) Icons.Default.KeyboardArrowUp else Icons.Default.KeyboardArrowDown,

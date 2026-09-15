@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.compose.material3.windowsizeclass.ExperimentalMaterial3WindowSizeClassApi
+import androidx.compose.material3.windowsizeclass.calculateWindowSizeClass
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.fragment.app.Fragment
@@ -14,6 +16,7 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class SecondFragment : Fragment() {
 
+    @OptIn(ExperimentalMaterial3WindowSizeClassApi::class)
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -21,9 +24,13 @@ class SecondFragment : Fragment() {
         return ComposeView(requireContext()).apply {
             setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
             setContent {
-                DeltaNavHost(onLogout = {
-                    findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
-                })
+                val windowSizeClass = calculateWindowSizeClass(requireActivity())
+                DeltaNavHost(
+                    windowSize = windowSizeClass,
+                    onLogout = {
+                        findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
+                    }
+                )
             }
         }
     }
